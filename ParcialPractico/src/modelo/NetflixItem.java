@@ -1,6 +1,6 @@
 package modelo;
 
-public class NetflixItem {
+public class NetflixItem implements Comparable<NetflixItem>{
 	
 	public final static String TYPE_MOVIE="Movie";
 	public final static String TYPE_SERIE="Serie";
@@ -11,12 +11,12 @@ public class NetflixItem {
 	private double rating;
 	private String img;
 	
-	public NetflixItem(String type, String name, int year, double rating, String img) {
+	public NetflixItem(String type, String name, int year, double rating){
 		this.type = type;
 		this.name = name;
 		this.year = year;
 		this.rating = rating;
-		this.img = name.toLowerCase().replace(" ", "")+".jpg";
+		this.img = "./data/img/"+name.toLowerCase().replace(" ", "")+".jpg";
 	}
 
 	public String getType() {
@@ -57,6 +57,20 @@ public class NetflixItem {
 
 	public void setImg(String img) {
 		this.img = img;
+	}
+
+	@Override
+	public int compareTo(NetflixItem o) {
+		// TODO Auto-generated method stub
+		int resp=0;
+		if(this.rating>o.rating) {
+			resp=-1;
+		}
+		else if(this.rating<o.rating) {
+			resp=1;
+		}
+		
+		return resp;
 	}
 	
 	

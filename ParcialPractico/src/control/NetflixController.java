@@ -1,6 +1,9 @@
 package control;
 
+import java.util.ArrayList;
+
 import modelo.NetflixApp;
+import modelo.NetflixItem;
 
 public class NetflixController {
 	
@@ -18,7 +21,14 @@ public class NetflixController {
 		this.app = app;
 	}
 	
+	public ArrayList<NetflixItem> sort(String sort){
+		
+		return app.sort(sort); 
+	}
 	
+	public void save(ArrayList<NetflixItem> items) {
+		app.setItems(items);
+	}
 	
 	
 
